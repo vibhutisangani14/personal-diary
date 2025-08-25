@@ -1,7 +1,19 @@
+import { useState } from "react";
+import Form from "./Form";
 const CreateDiary = () => {
+  const [showForm, setShowForm] = useState(false);
+  const handleClick = () => {
+    setShowForm(!showForm);
+  };
   return (
-    <div className="flex items-center justify-center h-screen">
-      <button className="mb-[10vh]">Create Diary</button>
+    <div className="flex w-full justify-center h-screen items-center">
+      {!showForm ? (
+        <button onClick={handleClick} className="mb-[10vh] btn btn-primary">
+          Create Diary
+        </button>
+      ) : (
+        <Form />
+      )}
     </div>
   );
 };
